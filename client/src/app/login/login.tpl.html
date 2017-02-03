@@ -1,0 +1,47 @@
+<div class="modal-header">
+  <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+          ng-click="ctrl.cancel()">&times;
+  </button>
+  <div class="col-md-8 col-md-offset-2">
+      <h1>Login</h1>
+  </div>
+</div>
+<div class="modal-body">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <div class="alert alert-danger" ng-show="ctrl.authenticationError">
+        <strong>Error while trying to log in!</strong> Please check your credentials and try again later.
+      </div>
+    </div>
+    <div class="col-md-8 col-md-offset-2">
+      <form class="form" role="form" ng-submit="ctrl.login($event)">
+        <div class="form-group">
+          <label class="control-label" for="username">Username</label>
+          <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
+            <input type="text" class="form-control" id="username" placeholder="Username" ng-model="ctrl.username">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label" for="password">Password</label>
+          <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-lock" aria-hidden="true"></i></span>
+            <input type="password" class="form-control" id="password" placeholder="Password" ng-model="ctrl.password">
+          </div>
+        </div>
+        <p>
+          <a class="account-link" href="" ng-click="ctrl.requestResetPassword()">Forgot password?</a>
+        </p>
+        <div class="form-group">
+          <label for="rememberMe">
+            <input type="checkbox" id="rememberMe" ng-model="ctrl.rememberMe" checked>
+            <span>Remember me</span>
+          </label>
+        </div>
+
+        <button type="submit" class="btn btn-primary pull-right">Login</button>
+      </form>
+        <p></p>
+    </div>
+  </div>
+</div>

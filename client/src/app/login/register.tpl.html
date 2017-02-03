@@ -1,0 +1,110 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+      <h1>Register</h1>
+      <div class="alert alert-success" ng-show="ctrl.success">
+        <strong>Register succeeded!</strong> Now you can <a href="" ng-click="ctrl.login()">log in</a>.
+      </div>
+      <div class="alert alert-danger" ng-show="ctrl.error" translate="register.messages.error.fail">
+        <strong>Error while registering.</strong> Please retry later.
+      </div>
+  </div>
+  <div class="col-md-6 col-md-offset-3">
+    <form class="form-horizontal" ng-show="!ctrl.success" name="form" role="form" novalidate ng-submit="ctrl.register()" show-validation>
+      <div class="form-group">
+        <label class="control-label" for="lastname">Last Name</label>
+        <input type="text" class="form-control" name="lastname" id="lastname" placeholder="Last Name" ng-model="ctrl.registerAccount.lastname" ng-minlength=2 ng-maxlength=50 required>
+        <div ng-show="form.lastname.$dirty && form.lastname.$invalid">
+          <p class="help-block" ng-show="form.lastname.$error.required">
+            Your last name is required.
+          </p>
+          <p class="help-block" ng-show="form.lastname.$error.minlength">
+            Your last name should contains at least 2 characters.
+          </p>
+          <p class="help-block" ng-show="form.lastname.$error.maxlength">
+            Your last name shoud not contains more than 50 characters.
+          </p>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label" for="firstname">First Name</label>
+        <input type="text" class="form-control" name="firstname" id="firstname" placeholder="First Name" ng-model="ctrl.registerAccount.firstname" ng-minlength=2 ng-maxlength=50 required>
+        <div ng-show="form.firstname.$dirty && form.firstname.$invalid">
+          <p class="help-block" ng-show="form.firstname.$error.required">
+            Your first name is required.
+          </p>
+          <p class="help-block" ng-show="form.firstname.$error.minlength">
+            Your first name should contains at least 2 characters.
+          </p>
+          <p class="help-block" ng-show="form.firstname.$error.maxlength">
+            Your first name shoud not contains more than 50 characters.
+          </p>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label" for="username">Username</label>
+        <input type="text" class="form-control" name="username" id="username" placeholder="Username" ng-model="ctrl.registerAccount.username" ng-minlength=3 ng-maxlength=50 required>      
+        <div ng-show="form.username.$dirty && form.username.$invalid">
+          <p class="help-block" ng-show="form.username.$error.required">
+            Your username is required.
+          </p>
+          <p class="help-block" ng-show="form.username.$error.minlength">
+            Your username should contains at least 2 characters.
+          </p>
+          <p class="help-block" ng-show="form.username.$error.maxlength">
+            Your username shoud not contains more than 50 characters
+          </p>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label" for="password">Password</label>
+        <input type="password" class="form-control" name="password" id="password" placeholder="Password" ng-model="ctrl.registerAccount.password" ng-minlength=3 ng-maxlength=50 required>
+        <div ng-show="form.password.$dirty && form.password.$invalid">
+          <p class="help-block" ng-show="form.password.$error.required">
+            Your password is required.
+          </p>
+          <p class="help-block" ng-show="form.password.$error.minlength">
+            Your password should contains at least 2 characters.
+          </p>
+          <p class="help-block" ng-show="form.password.$error.maxlength">
+            Your password shoud not contains more than 50 characters
+          </p>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label" for="confirmPassword">Password confirmation</label>
+        <input type="password" class="form-control" name="confirmPassword" id="confirmPassword" placeholder="Password confirmation" ng-model="ctrl.confirmPassword" ng-minlength=3 ng-maxlength=50 required>
+        <div ng-show="form.confirmPassword.$dirty && form.confirmPassword.$invalid">
+          <p class="help-block" ng-show="form.confirmPassword.$error.required">
+            Your confirmation password is required.
+          </p>
+          <p class="help-block" ng-show="form.confirmPassword.$error.minlength">
+            Your confirmation password should contains at least 2 characters.
+          </p>
+          <p class="help-block" ng-show="form.confirmPassword.$error.maxlength">
+            Your confirmation password shoud not contains more than 50 characters
+          </p>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" name="cgu" id="cgu" ng-model="vm.cgu" required>I have read and I accept the general conditions of use.
+          </label>
+        </div>
+        <div ng-show="form.cgu.$dirty && form.cgu.$invalid">
+          <p class="help-block" ng-show="form.cgu.$error.required" translate="global.messages.validate.cgu.required">
+              You must accept the general conditions of use.
+          </p>
+        </div>
+      </div>
+
+      <button type="submit" ng-disabled="form.$invalid" class="btn btn-primary pull-right" translate="register.form.button">Register</button>
+    </form>
+    <p></p>
+  </div>
+</div>

@@ -1,0 +1,46 @@
+<div class="navbar navbar-default">
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <div class="navbar-brand">
+      ngclient
+    </div>
+  </div>
+
+  <!-- Collect the nav links, forms, and other content for toggling -->
+  <div class="collapse navbar-collapse" id="navbar" ng-switch="ctrl.isAuthenticated()">
+    <ul class="nav navbar-nav navbar-right">
+      <li ui-sref-active="active">
+        <a href ui-sref="home">
+          <i class="fa fa-home" aria-hidden="true"></i>
+          <span class="hidden-sm">Home</span>
+        </a>
+      </li>
+      <li ui-sref-active="active">
+        <a href ui-sref="about">
+          <i class="fa fa-info-circle"></i>
+          <span class="hidden-sm">About</span>
+        </a>
+      </li>
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+          <i class="fa fa-user" aria-hidden="true"></i>
+          <span class="hidden-sm">
+            {{ ctrl.user.username}}
+          </span>
+          <span class="caret"> </span>
+        </a>
+        <ul class="dropdown-menu">
+          <li ng-switch-when="false"><a href="" ng-click="ctrl.login()">Login</a></li>
+          <li ng-switch-when="true"><a href="" ng-click="ctrl.logout()">Logout</a></li>
+          <li ng-switch-when="false"><a ui-sref="register">Register</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>
