@@ -23,12 +23,13 @@ var users = require('./routes/users');
 var app = express();
 
 // Secure traffic only
-app.all('*', function(req, res, next){
-  if (req.secure){
-    return next();
-  }
-  res.redirect('https://'+req.hostname+':'+app.get('secPort')+req.url);
-});
+// Uncomment the next lines to only allow secure traffic (https)
+// app.all('*', function(req, res, next){
+//   if (req.secure){
+//     return next();
+//   }
+//   res.redirect('https://'+req.hostname+':'+app.get('secPort')+req.url);
+// });
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

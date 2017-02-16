@@ -66,7 +66,6 @@ userRouter.route('/login')
           err: 'Could not log in user'
         });
       }
-      console.log('User in users: ', user);
       var token = Verify.getToken(user);
       res.status(200).json({
         status: 'Login successfully',

@@ -6,12 +6,10 @@ angular.module( 'ngclient.navbar', [])
   self.logout = logout;
 
   function login(){
-    console.log('login');
     LoginService.open();
   }
 
   function logout(){
-    console.log('logout');
     Auth.logout();
     self.user = {};
     $state.go('home');

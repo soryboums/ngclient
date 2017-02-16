@@ -18,5 +18,5 @@ angular.module( 'ngclient.about', [
 })
 
 .controller( 'AboutCtrl', function AboutCtrl( ) {
-  console.log('AboutCtrl');
+  var self = this;
 });
