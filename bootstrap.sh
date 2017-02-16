@@ -30,20 +30,12 @@ else
     sudo apt-get install mongodb -y
 fi
 
-echo '**************************** Installing bower ****************************'
-sudo npm install -g bower
 echo '**************************** Installing karma ****************************'
 sudo npm install -g karma
 echo '**************************** Installing grunt ****************************'
 sudo npm install -g grunt
 
-echo '*********************** Installing client side requirements ************************'
-cd /vagrant/client
+echo '*********************** Installing requirements ************************'
+cd /vagrant
 npm install --no-bin-links
-
-echo '*********************** Installing server side requirements ************************'
-cd /vagrant/server
-npm install --no-bin-links
-
-echo '*********************** Starting the server ************************'
-npm start
+# npm install --no-bin-links
